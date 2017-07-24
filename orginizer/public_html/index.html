@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <title>ORGINIZER</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="angular.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+    <div>CLOCK</div> 
+        <div ng-controller="TimeCtrl">
+        <p>The local time is: {{timeString}} </p>
+        <button ng-Click="updateTime()">Update</button>
+        </div> </p><br />
+    <div>CALCULATOR</div> 
+        <div ng-controller="CalculatorCtrl as ctrl">
+            <input type="text" ng-model="ctrl.input1"></input>
+            <span ng-bind="ctrl.selectedOperation"></span>
+            <input type="text" ng-model="ctrl.input2"></input>
+            <button ng-click="ctrl.computeResult()"> = </button>
+            <span ng-bind="ctrl.resultValue"></span>
+            <p>
+                Choose operation:
+                <button ng-click="ctrl.buttonClicked('+')">+</button>
+                <button ng-click="ctrl.buttonClicked('-')">-</button>
+                <button ng-click="ctrl.buttonClicked('*')" >*</button>
+                <button ng-click="ctrl.buttonClicked('/')" >/</button>
+            </p>            
+    </body>
+</html>
