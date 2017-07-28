@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="angular.min.js"></script>
+        <script src="app1.js"></script>
         <script src="app.js"></script>
     </head>
     <body>
@@ -26,6 +27,26 @@
                 <button ng-click="ctrl.buttonClicked('-')">-</button>
                 <button ng-click="ctrl.buttonClicked('*')" >*</button>
                 <button ng-click="ctrl.buttonClicked('/')" >/</button>
-            </p>            
+            </p>
+     <div>NOOTEBOOK</div>        
+     <div ng-controller="Ctrl as ctrl" >
+        <div>        
+            <p>Add a record:</p>
+            <input type="text" ng-model="ctrl.newbook">
+        </div>
+            <button ng-click="ctrl.addnewBook()">Add</button>
+        <div>    
+            <p>records:</p>
+            <button ng-hide="ctrl.edit" ng-click="ctrl.Edit()">Edit</button>
+            <button ng-show ="ctrl.edit" ng-click="ctrl.Edit()">Save</button>
+            <ol>
+            <li ng-repeat="book in ctrl.books track by $index">
+                <span ng-hide="ctrl.edit" ng-bind="book"></span>                   
+                <input type="text" ng-model="book" ng-show ="ctrl.edit"></input>
+                <button ng-hide="ctrl.edit" ng-click="ctrl.Delete($index)">Delete</button>
+            </li>
+            </ol>
+        </div>
+        </div>       
     </body>
 </html>
